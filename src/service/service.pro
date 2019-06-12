@@ -57,7 +57,12 @@ never_true_lupdate_only {
 	for(plugin, PLUGINS): SOURCES += $$plugin/*.cpp
 }
 
-!load(qdep):error("Failed to load qdep feature! Run 'qdep prfgen --qmake $$QMAKE_QMAKE' to create it.")
+##!load(qdep):error("Failed to load qdep feature! Run 'qdep prfgen --qmake $$QMAKE_QMAKE' to create it.")
+
+include(../../../QExceptionBase/qexceptionbase.pri) 
+include(../../../QConsole/qconsole.pri) 
+include(../../../QCtrlSignals/qctrlsignals.pri) 
+include(../../../QPluginFactory/qpluginfactory.pri) 
 
 #replace template qm by ts
 QM_FILES -= $$__qdep_lrelease_real_dir/qtservice_template.qm
